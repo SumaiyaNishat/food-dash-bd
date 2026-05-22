@@ -2,8 +2,9 @@
 
 import Link from "next/link";
 import React from "react";
+import CardButton from "../button/CardButton";
 
-const FoodCard = ({ food, onAddToCart }) => {
+const FoodCard = ({ food }) => {
   return (
     <div className="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition duration-300">
       
@@ -34,12 +35,8 @@ const FoodCard = ({ food, onAddToCart }) => {
         {/* Buttons */}
         <div className="flex gap-2 mt-4">
           
-          <button
-            onClick={() => onAddToCart(food)}
-            className="flex-1 bg-orange-500 text-white py-2 rounded-lg hover:bg-orange-600 transition"
-          >
-            Add to Cart
-          </button>
+        
+          <CardButton food={food}></CardButton>
 
           <Link
             href={`/foods/${food.id}`}
