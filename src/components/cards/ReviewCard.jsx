@@ -1,6 +1,7 @@
 "use client";
 
 import { Heart, Star } from "lucide-react";
+import Image from "next/image";
 import { useState } from "react";
 
 const ReviewCard = ({ review }) => {
@@ -26,12 +27,16 @@ const ReviewCard = ({ review }) => {
       {/* User */}
       <div className="flex items-center gap-4">
         <div className="relative w-14 h-14">
-          <img
+          {/* <img
             src={review.photo}
             alt={review.user}
             fill
             className="rounded-full object-cover"
-          />
+          /> */}
+          <Image src={review.photo}
+            alt={review.user}
+            // fill
+            className="rounded-full object-cover" width={56} height={56}/>
         </div>
 
         <div>
