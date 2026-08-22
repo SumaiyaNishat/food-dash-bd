@@ -17,7 +17,7 @@ const geistMono = Geist_Mono({
 const poppins = Poppins({
   weight: ["400", "500", "700"],
   subsets: ["latin"],
-})
+});
 
 export const metadata = {
   title: {
@@ -29,27 +29,33 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html
-      lang="en"
-      className={`${poppins.className} antialiased`}
-    >
+    <html lang="en" className={`${poppins.className} antialiased`}>
       <body className="min-h-full flex flex-col">
         <header className="px-5 py-2 flex items-center justify-between gap-5 bg-stone-800">
           <Link href="/">
-          {/* <img src="/logo.png" alt="" className="w-[120px] bg-white rounded-full"/> */}
+            {/* <img src="/logo.png" alt="" className="w-[120px] bg-white rounded-full"/> */}
 
-          <Image width={120} height={30} src="/logo.png" alt="" className="w-[120px] bg-white rounded-full"/>
+            <Image
+              src="/logo.png"
+              alt="Food Dash BD"
+              width={150}
+              height={50}
+              loading="eager"
+            />
           </Link>
           <div className="space-x-5">
-            <Link prefetch={false} className="btn" href="/foods">Food</Link>
-          <Link className="btn" href="/reviews">Reviews</Link>
+            <Link prefetch={false} className="btn" href="/foods">
+              Food
+            </Link>
+            <Link className="btn" href="/reviews">
+              Reviews
+            </Link>
           </div>
         </header>
-       <main className="px-5 py-8">
-        <CartProvider>{children}</CartProvider>
+        <main className="px-5 py-8">
+          <CartProvider>{children}</CartProvider>
         </main>
-        
-        </body>
+      </body>
     </html>
   );
 }
