@@ -1,11 +1,11 @@
-const feedback = [
+export const feedback = [
   {
     id: 1,
     message: "Food is very testy!",
   },
   {
     id: 2,
-    message: "Food is very testy!",
+    message: "waiters behaviour so good!",
   },
 ];
 
