@@ -1,6 +1,11 @@
-import { feedback } from "../route";
+// import { feedback } from "../route";
+
+
+const feedbackcollection =connect("feedbacks");
 
 export async function GET(request) {
+
+    const feedback = await feedbackcollection.find().toArray();
     return Response.json(feedback);
 }
 export async function POST(request) {
@@ -14,14 +19,17 @@ export async function POST(request) {
         });
     }
 
-    const newFeedback = {message, id: feedback.length + 1};
-    feedback.push(newFeedback);
+    const newFeedback = {message, date:new date().toISOString()};
+    // feedback.push(newFeedback);
+    const result = await feedbackcollection.insertOne(newFeedback);
 
-    return Response.json({
-        // status: 200,
-        // message: "Feedback submitted successfully",
-        // data
-        acknowledged: true,
-        insertedId: newFeedback.id,
-    });
+    return Response.json(result);
+
+    // return Response.json({
+    //     // status: 200,
+    //     // message: "Feedback submitted successfully",
+    //     // data
+    //     acknowledged: true,
+    //     insertedId: newFeedback.id,
+    // });
 }
